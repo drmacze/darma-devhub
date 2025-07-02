@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📜 Patch Notes - Ashaterra</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+    }
+    .version {
+      background: #222;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .version h2 {
+      margin: 0;
+      color: #00ffff;
+    }
+    .version ul {
+      margin: 0.5rem 0 0 1.2rem;
+    }
+  </style>
+  <script>
+    async function loadPatch() {
+      const res = await fetch('patchnotes.json');
+      const notes = await res.json();
+      const container = document.getElementById("log");
+
+      notes.forEach(p => {
+        const div = document.createElement("div");
+        div.className = "version";
+        div.innerHTML = "<h2>" + p.version + " - " + p.date + "</h2><ul>" +
+          p.highlights.map(h => "<li>" + h + "</li>").join("") + "</ul>";
+        container.appendChild(div);
+      });
+    }
+
+    window.onload = loadPatch;
+  </script>
+</head>
+<body>
+  <h1>📜 Patch Notes</h1>
+  <div id="log"></div>
+</body>
+</html>
