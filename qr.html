@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📱 QR Access</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    canvas {
+      margin: 1rem;
+      border: 4px solid #fff;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📱 Akses Cepat via QR</h1>
+  <div>
+    <h2>▶️ Demo</h2>
+    <canvas id="qr-demo"></canvas>
+    <h2>🧪 Beta</h2>
+    <canvas id="qr-beta"></canvas>
+  </div>
+
+  <script>
+    new QRious({
+      element: document.getElementById('qr-demo'),
+      value: 'https://drmacze.github.io/darma-devhub/demo.html',
+      size: 200
+    });
+    new QRious({
+      element: document.getElementById('qr-beta'),
+      value: 'https://drmacze.github.io/darma-devhub/beta.html',
+      size: 200
+    });
+  </script>
+</body>
+</html>
