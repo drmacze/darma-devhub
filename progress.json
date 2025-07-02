@@ -1,0 +1,10 @@
+{
+  "features_completed": 12,
+  "features_total": 15,
+  "milestones": [
+    { "name": "Changelog visual", "done": true },
+    { "name": "Demo UI aktif", "done": true },
+    { "name": "Patch ke Telegram", "done": true },
+    { "name": "Notion Sync", "done": false }
+  ]
+}
