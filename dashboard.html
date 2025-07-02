@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>📊 Dev Dashboard - Ashaterra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+      padding: 2rem;
+    }
+    h1 {
+      color: #00ffaa;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+  </style>
+  <script>
+    async function loadStats() {
+      const res1 = await fetch('devstats.json');
+      const stats = await res1.json();
+
+      const res2 = await fetch('progress.json');
+      const progress = await res2.json();
+
+      document.getElementById("commits").innerText = stats.total_commits;
+      document.getElementById("issues").innerText = stats.open_issues;
+      document.getElementById("stars").innerText = stats.stars;
+      document.getElementById("milestone").innerText = progress.features_completed + "/" + progress.features_total;
+    }
+
+    window.onload = loadStats;
+  </script>
+</head>
+<body>
+  <h1>Developer Dashboard</h1>
+
+  <div class="card">🔁 Commits: <span id="commits">...</span></div>
+  <div class="card">⭐ Stars: <span id="stars">...</span></div>
+  <div class="card">🐛 Open Issues: <span id="issues">...</span></div>
+  <div class="card">🚧 Milestones: <span id="milestone">...</span></div>
+</body>
+</html>
